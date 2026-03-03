@@ -1,34 +1,27 @@
 /* ============================================================
    DAUDI SYMON — PORTFOLIO
-   src/style.css  — Tailwind v4 entry + design tokens
+   src/style.css — Tailwind v4 entry + design tokens + fixes
    ============================================================ */
 
 @import "tailwindcss";
 
 /* ── Brand Design Tokens ── */
 @theme {
-  /* Colors */
-  --color-accent:        #F5A623;
-  --color-accent-hover:  #e09510;
-  --color-bg-dark:       #0d0d0d;
-  --color-bg-darker:     #080808;
-  --color-bg-card:       #161616;
-  --color-bg-light:      #f5f5f5;
-  --color-text-muted:    #aaaaaa;
-  --color-border:        rgba(245, 166, 35, 0.25);
-
-  /* Typography */
-  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
-
-  /* Shadows */
-  --shadow-accent: 0 4px 20px rgba(245, 166, 35, 0.18);
-  --shadow-card:   0 8px 32px rgba(0, 0, 0, 0.2);
+  --color-accent:       #F5A623;
+  --color-accent-hover: #e09510;
+  --color-bg-dark:      #0d0d0d;
+  --color-bg-darker:    #080808;
+  --color-bg-card:      #161616;
+  --color-bg-light:     #f5f5f5;
+  --color-text-muted:   #aaaaaa;
+  --color-border:       rgba(245, 166, 35, 0.25);
+  --font-sans:          'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --shadow-accent:      0 4px 20px rgba(245, 166, 35, 0.18);
+  --shadow-card:        0 8px 32px rgba(0, 0, 0, 0.2);
 }
 
-/* ── Base resets ── */
-*,
-*::before,
-*::after {
+/* ── Base Reset ── */
+*, *::before, *::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -41,49 +34,123 @@ html {
 
 body {
   font-family: var(--font-sans);
-  background-color: var(--color-bg-dark);
+  background-color: #0d0d0d;
   color: #f0f0f0;
   line-height: 1.7;
   overflow-x: hidden;
 }
 
-/* ── Custom scrollbar ── */
-::-webkit-scrollbar        { width: 5px; }
-::-webkit-scrollbar-track  { background: var(--color-bg-dark); }
-::-webkit-scrollbar-thumb  { background: var(--color-accent); border-radius: 3px; }
+/* ── Scrollbar ── */
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: #0d0d0d; }
+::-webkit-scrollbar-thumb { background: #F5A623; border-radius: 3px; }
 
-/* ── Text selection ── */
-::selection {
-  background-color: var(--color-accent);
-  color: #0d0d0d;
-}
+/* ── Selection ── */
+::selection { background-color: #F5A623; color: #0d0d0d; }
 
-/* ── Typed cursor blink ── */
+/* ── Animations ── */
 @keyframes blink {
   0%, 100% { opacity: 1; }
   50%       { opacity: 0; }
 }
 .typed-cursor { animation: blink 1s infinite; }
 
-/* ── Scroll bounce ── */
 @keyframes bounce-y {
   0%, 100% { transform: translateX(-50%) translateY(0); }
   50%       { transform: translateX(-50%) translateY(8px); }
 }
 .scroll-bounce { animation: bounce-y 2s infinite; }
 
-/* ── AOS overrides (ensure visibility on reduced-motion) ── */
+/* ── Reduced motion ── */
 @media (prefers-reduced-motion: reduce) {
   [data-aos] { opacity: 1 !important; transform: none !important; }
 }
 
-/* ── Reusable component classes ── */
-.skill-tag {
-  @apply bg-[#F5A623]/10 text-[#555] border border-[#F5A623]/30
-         rounded-full px-3 py-0.5 text-xs font-medium whitespace-nowrap;
+/* ============================================================
+   LAYOUT — section spacing
+   ============================================================ */
+section {
+  padding-top: 96px;
+  padding-bottom: 96px;
 }
 
+/* ============================================================
+   CARDS — force padding to always render
+   ============================================================ */
+#services article,
+#projects article {
+  padding: 28px !important;
+}
+
+#skills > div > div > div {
+  padding: 24px !important;
+}
+
+#certifications article {
+  padding: 24px !important;
+}
+
+/* ============================================================
+   SKILL TAGS
+   ============================================================ */
+.skill-tag {
+  display: inline-flex;
+  align-items: center;
+  background-color: rgba(245, 166, 35, 0.12);
+  color: #444444;
+  border: 1px solid rgba(245, 166, 35, 0.35);
+  border-radius: 9999px;
+  padding: 3px 12px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   TECH TAGS
+   ============================================================ */
 .tech-tag {
-  @apply bg-[#1e1e1e] text-[#aaa] border border-white/10
-         rounded px-2.5 py-0.5 text-xs font-mono;
+  display: inline-flex;
+  align-items: center;
+  background-color: #1e1e1e;
+  color: #aaaaaa;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 4px;
+  padding: 2px 10px;
+  font-size: 0.72rem;
+  font-family: 'Courier New', monospace;
+  line-height: 1.6;
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media (max-width: 768px) {
+  section {
+    padding-top: 64px;
+    padding-bottom: 64px;
+  }
+
+  #hero h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+  }
+
+  #services article,
+  #projects article,
+  #certifications article {
+    padding: 20px !important;
+  }
+}
+
+@media (max-width: 480px) {
+  section {
+    padding-top: 48px;
+    padding-bottom: 48px;
+  }
+
+  #hero h1 {
+    font-size: 2.5rem;
+  }
 }
