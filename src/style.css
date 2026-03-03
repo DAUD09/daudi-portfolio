@@ -1,0 +1,89 @@
+/* ============================================================
+   DAUDI SYMON — PORTFOLIO
+   src/style.css  — Tailwind v4 entry + design tokens
+   ============================================================ */
+
+@import "tailwindcss";
+
+/* ── Brand Design Tokens ── */
+@theme {
+  /* Colors */
+  --color-accent:        #F5A623;
+  --color-accent-hover:  #e09510;
+  --color-bg-dark:       #0d0d0d;
+  --color-bg-darker:     #080808;
+  --color-bg-card:       #161616;
+  --color-bg-light:      #f5f5f5;
+  --color-text-muted:    #aaaaaa;
+  --color-border:        rgba(245, 166, 35, 0.25);
+
+  /* Typography */
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+
+  /* Shadows */
+  --shadow-accent: 0 4px 20px rgba(245, 166, 35, 0.18);
+  --shadow-card:   0 8px 32px rgba(0, 0, 0, 0.2);
+}
+
+/* ── Base resets ── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-bg-dark);
+  color: #f0f0f0;
+  line-height: 1.7;
+  overflow-x: hidden;
+}
+
+/* ── Custom scrollbar ── */
+::-webkit-scrollbar        { width: 5px; }
+::-webkit-scrollbar-track  { background: var(--color-bg-dark); }
+::-webkit-scrollbar-thumb  { background: var(--color-accent); border-radius: 3px; }
+
+/* ── Text selection ── */
+::selection {
+  background-color: var(--color-accent);
+  color: #0d0d0d;
+}
+
+/* ── Typed cursor blink ── */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50%       { opacity: 0; }
+}
+.typed-cursor { animation: blink 1s infinite; }
+
+/* ── Scroll bounce ── */
+@keyframes bounce-y {
+  0%, 100% { transform: translateX(-50%) translateY(0); }
+  50%       { transform: translateX(-50%) translateY(8px); }
+}
+.scroll-bounce { animation: bounce-y 2s infinite; }
+
+/* ── AOS overrides (ensure visibility on reduced-motion) ── */
+@media (prefers-reduced-motion: reduce) {
+  [data-aos] { opacity: 1 !important; transform: none !important; }
+}
+
+/* ── Reusable component classes ── */
+.skill-tag {
+  @apply bg-[#F5A623]/10 text-[#555] border border-[#F5A623]/30
+         rounded-full px-3 py-0.5 text-xs font-medium whitespace-nowrap;
+}
+
+.tech-tag {
+  @apply bg-[#1e1e1e] text-[#aaa] border border-white/10
+         rounded px-2.5 py-0.5 text-xs font-mono;
+}
