@@ -7,7 +7,7 @@
 
 /* ── Brand Design Tokens ── */
 @theme {
-  --color-accent:       #F5A623;
+  --color-accent:       #03BCF1;
   --color-accent-hover: #e09510;
   --color-bg-dark:      #0d0d0d;
   --color-bg-darker:    #080808;
@@ -43,10 +43,10 @@ body {
 /* ── Scrollbar ── */
 ::-webkit-scrollbar       { width: 5px; }
 ::-webkit-scrollbar-track { background: #0d0d0d; }
-::-webkit-scrollbar-thumb { background: #F5A623; border-radius: 3px; }
+::-webkit-scrollbar-thumb { background: #03BCF1; border-radius: 3px; }
 
 /* ── Selection ── */
-::selection { background-color: #F5A623; color: #0d0d0d; }
+::selection { background-color: #03BCF1; color: #0d0d0d; }
 
 /* ── Animations ── */
 @keyframes blink {
@@ -67,11 +67,44 @@ body {
 }
 
 /* ============================================================
-   LAYOUT — section spacing
+   LAYOUT — section spacing + global padding fix
    ============================================================ */
 section {
   padding-top: 96px;
   padding-bottom: 96px;
+}
+
+/* ── Global container fix — forces padding on ALL inner containers ── */
+#mainNav > div,
+#hero > div,
+#about > div,
+#services > div,
+#skills > div,
+#projects > div,
+#certifications > div,
+#contact > div,
+footer > div {
+  max-width: 1152px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 48px;
+  padding-right: 48px;
+}
+
+/* Mobile — reduce padding on smaller screens */
+@media (max-width: 768px) {
+  #mainNav > div,
+  #hero > div,
+  #about > div,
+  #services > div,
+  #skills > div,
+  #projects > div,
+  #certifications > div,
+  #contact > div,
+  footer > div {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
 }
 
 /* ============================================================
