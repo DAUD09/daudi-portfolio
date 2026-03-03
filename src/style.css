@@ -74,6 +74,22 @@ section {
   padding-bottom: 96px;
 }
 
+/* ── Hero extra top breathing room ── */
+#hero {
+  padding-top: 140px;
+}
+
+/* ── Hero CTA buttons — more space from paragraph above ── */
+#hero .flex.flex-wrap.gap-4 {
+  margin-top: 40px;
+  margin-bottom: 0;
+}
+
+/* ── Hero social icons — more space from buttons above ── */
+#hero .flex.gap-3 {
+  margin-top: 32px;
+}
+
 /* ── Global container fix — forces padding on ALL inner containers ── */
 #mainNav > div,
 #hero > div,
