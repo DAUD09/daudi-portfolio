@@ -203,3 +203,27 @@ footer > div {
     font-size: 2.5rem;
   }
 }
+
+/* ── Hero CTA buttons — larger pills with breathing room ── */
+#hero a[href="#projects"],
+#hero a[href="#contact"],
+#mobileMenu a[href="#contact"]{
+  padding: 14px 36px !important;
+  font-size: 0.95rem !important;
+  line-height: 1 !important;
+  display: inline-flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+  white-space: nowrap !important;
+}
+
+/* ── Navbar taller on scroll ── */
+#mainNav {
+  padding-top: 22px !important;
+  padding-bottom: 22px !important;
+}
+
+#mainNav.scrolled {
+  padding-top: 16px !important;
+  padding-bottom: 16px !important;
+}
