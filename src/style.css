@@ -369,3 +369,12 @@ footer > div {
 #services .text-center {
   margin-bottom: 56px;
 }
+
+/* ── Skills heading — pull subtitle tight to heading ── */
+#skills .text-center {
+  margin-bottom: 48px;
+}
+
+#skills .text-center p.text-sm {
+  margin-top: 4px;
+}
