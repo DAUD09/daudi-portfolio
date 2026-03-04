@@ -238,3 +238,134 @@ footer > div {
   white-space: nowrap !important;
   letter-spacing: 0.08em !important;
 }
+
+/* ── Glassmorphism floating badges ── */
+.glass-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 10px 18px;
+  border-radius: 9999px;
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: #ffffff;
+  white-space: nowrap;
+  letter-spacing: 0.03em;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.3),
+              inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+
+/* ── About image ── */
+.about-img-container {
+  width: 100%;
+  max-width: 320px;
+  height: 320px;
+  border-radius: 12px;
+  overflow: hidden;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid rgba(3, 188, 241, 0.2);
+}
+
+@media (min-width: 1024px) {
+  .about-img-container {
+    margin-left: 0;
+    margin-right: 0;
+  }
+}
+
+/* ── About stats row ── */
+.about-stats-row {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 320px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 1024px) {
+  .about-stats-row {
+    margin-left: 0;
+    margin-right: 0;
+    justify-content: flex-start;
+  }
+}
+
+/* ── Glassmorphism stat cards ── */
+.glass-stat {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 14px 12px;
+  border-radius: 10px;
+  text-align: center;
+
+  /* Glassmorphism */
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25),
+              inset 0 1px 0 rgba(255, 255, 255, 0.08);
+}
+
+.stat-number {
+  display: block;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #03BCF1;
+  line-height: 1;
+  margin-bottom: 6px;
+}
+
+.stat-label {
+  display: block;
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: #aaaaaa;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Download CV button ── */
+.cv-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 32px;
+  padding: 14px 36px;
+  background-color: #ffffff;
+  color: #0d0d0d;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  transition: background-color 0.2s ease;
+  text-decoration: none;
+}
+
+.cv-download-btn:hover {
+  background-color: #e8e8e8;
+}
+
+/* ── Services section — heading breathing room ── */
+#services {
+  padding-top: 120px;
+}
+
+#services .text-center {
+  margin-bottom: 56px;
+}
