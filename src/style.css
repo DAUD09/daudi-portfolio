@@ -378,3 +378,77 @@ footer > div {
 #skills .text-center p.text-sm {
   margin-top: 4px;
 }
+
+/* ── Projects section — heading breathing room ── */
+#projects {
+  padding-top: 120px;
+}
+
+#projects .text-center {
+  margin-bottom: 56px;
+}
+
+/* ── Certifications section — heading breathing room ── */
+#certifications {
+  padding-top: 120px;
+}
+
+#certifications .text-center {
+  margin-bottom: 56px;
+}
+
+/* ── Contact section — heading breathing room ── */
+#contact {
+  padding-top: 120px;
+}
+
+#contact .text-center {
+  margin-bottom: 56px;
+}
+
+
+/* ── View Credly Profile button ── */
+.credly-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 24px;
+  padding: 14px 36px;
+  background-color: #ffffff;
+  color: #0d0d0d;
+  font-size: 0.95rem;
+  font-weight: 600;
+  border-radius: 9999px;
+  line-height: 1;
+  letter-spacing: 0.03em;
+  white-space: nowrap;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+}
+
+.credly-btn:hover {
+  background-color: #e8e8e8;
+}
+
+/* ── Service card tags ── */
+.service-tags {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-top: 4px;
+}
+
+.service-tag {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.75rem;
+  color: #aaaaaa;
+}
+
+.service-tag::before {
+  content: '▸';
+  color: #03BCF1;
+  font-size: 0.7rem;
+  flex-shrink: 0;
+}
