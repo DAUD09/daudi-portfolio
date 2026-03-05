@@ -25,17 +25,14 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainNav  = document.getElementById('mainNav')
   const navLinks = document.querySelectorAll('.nav-link')
   const sections = document.querySelectorAll('section[id]')
+  const lightSections = ['skills', 'about']
 
   const updateNav = () => {
     if (window.scrollY > 60) {
-      mainNav.classList.add(
-        'bg-[#0a0a0a]/97', 'shadow-[0_2px_20px_rgba(0,0,0,0.4)]', 'py-2'
-      )
+      mainNav.classList.add('bg-[#0a0a0a]/97', 'shadow-[0_2px_20px_rgba(0,0,0,0.4)]', 'py-2')
       mainNav.classList.remove('py-4')
     } else {
-      mainNav.classList.remove(
-        'bg-[#0a0a0a]/97', 'shadow-[0_2px_20px_rgba(0,0,0,0.4)]', 'py-2'
-      )
+      mainNav.classList.remove('bg-[#0a0a0a]/97', 'shadow-[0_2px_20px_rgba(0,0,0,0.4)]', 'py-2')
       mainNav.classList.add('py-4')
     }
 
@@ -43,13 +40,18 @@ document.addEventListener('DOMContentLoaded', () => {
     sections.forEach(sec => {
       if (window.scrollY >= sec.offsetTop - 130) current = sec.id
     })
+
+    const isLightSection = lightSections.includes(current)
+
+    // Toggle class on nav — CSS handles all color changes
+    mainNav.classList.toggle('nav-light', isLightSection)
+
     navLinks.forEach(link => {
       const isActive = link.getAttribute('href') === `#${current}`
-      link.classList.toggle('text-white', isActive)
-      link.classList.toggle('text-white/80', !isActive)
+      link.classList.toggle('text-white', isActive && !isLightSection)
+      link.classList.toggle('text-white/80', !isActive && !isLightSection)
     })
   }
-
   window.addEventListener('scroll', updateNav, { passive: true })
   updateNav()
 

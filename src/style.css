@@ -566,3 +566,19 @@ footer > div {
   padding-top: 10px;
   padding-bottom: 10px;
 }
+
+/* ── Navbar light section overrides ── */
+#mainNav.nav-light .nav-link,
+#mainNav.nav-light a[href="#hero"] {
+  color: #0d0d0d !important;
+}
+
+#mainNav.nav-light a[href="#contact"] {
+  color: #0d0d0d !important;
+  border-color: #0d0d0d !important;
+}
+
+#mainNav.nav-light .nav-link:hover,
+#mainNav.nav-light a[href="#hero"]:hover {
+  color: #03BCF1 !important;
+}
