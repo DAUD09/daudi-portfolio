@@ -196,24 +196,26 @@ document.addEventListener('DOMContentLoaded', () => {
       submitBtn.disabled     = true
       submitBtn.innerHTML    = '<i class="bi bi-hourglass-split mr-2"></i>Sending...'
 
-      // TODO: Replace with your actual backend / Formspree / EmailJS call
-      // Example Formspree:
-      // fetch('https://formspree.io/f/YOUR_ID', {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ name, email, subject, message })
-      // })
-      // .then(r => r.ok ? showMsg('Message sent! I\'ll get back to you soon.', 'success')
-      //                  : showMsg('Something went wrong. Please email me directly.', 'error'))
-      // .finally(() => { submitBtn.disabled = false; submitBtn.innerHTML = '...' })
-
-      // Simulate for now
-      setTimeout(() => {
-        showMsg("Message sent! I'll get back to you soon.", 'success')
-        contactForm.reset()
+      fetch('https://formspree.io/f/mlgprbgj', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ name, email, subject, message })
+      })
+      .then(r => {
+        if (r.ok) {
+          showMsg("Message sent! I'll get back to you soon.", 'success')
+          contactForm.reset()
+        } else {
+          showMsg('Something went wrong. Please email me directly.', 'error')
+        }
+      })
+      .catch(() => {
+        showMsg('Network error. Please check your connection and try again.', 'error')
+      })
+      .finally(() => {
         submitBtn.disabled  = false
-        submitBtn.innerHTML = '<i class="bi bi-send-fill mr-2"></i>Send Message'
-      }, 1500)
+        submitBtn.innerHTML = '<i class="bi bi-send-fill"></i>Send Message'
+      })
     })
   }
 
