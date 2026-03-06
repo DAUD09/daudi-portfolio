@@ -46,6 +46,14 @@ document.addEventListener('DOMContentLoaded', () => {
     // Toggle class on nav — CSS handles all color changes
     mainNav.classList.toggle('nav-light', isLightSection)
 
+    // Force mobile menu background based on section
+    const mobileMenu = document.getElementById('mobileMenu')
+    if (mobileMenu) {
+      mobileMenu.style.backgroundColor = isLightSection
+        ? 'rgba(245, 245, 245, 0.98)'
+        : ''
+    }
+
     navLinks.forEach(link => {
       const isActive = link.getAttribute('href') === `#${current}`
       link.classList.toggle('text-white', isActive && !isLightSection)

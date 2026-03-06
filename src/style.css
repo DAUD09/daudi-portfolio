@@ -569,6 +569,7 @@ footer > div {
 
 /* ── Navbar light section overrides ── */
 #mainNav.nav-light .nav-link,
+#mainNav.nav-light .mobile-nav-link,
 #mainNav.nav-light a[href="#hero"] {
   color: #0d0d0d !important;
 }
@@ -579,6 +580,16 @@ footer > div {
 }
 
 #mainNav.nav-light .nav-link:hover,
+#mainNav.nav-light .mobile-nav-link:hover,
 #mainNav.nav-light a[href="#hero"]:hover {
   color: #03BCF1 !important;
+}
+
+/* Mobile menu background when over light section */
+#mainNav.nav-light #mobileMenu {
+  background-color: rgba(245, 245, 245, 0.98) !important;
+}
+
+#mainNav.nav-light #mobileMenu .border-t {
+  border-color: rgba(0, 0, 0, 0.1) !important;
 }
