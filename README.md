@@ -62,11 +62,11 @@ daudi-portfolio/
 
 ## Customisation Checklist
 
-- [ ] Add your profile photo to `images/profile.jpg` and update `index.html` avatar sections
-- [ ] Add your CV PDF to `assets/Daudi_Symon_CV.pdf`
-- [ ] Add `images/favicon.png` and `images/og-cover.jpg`
-- [ ] Update your Credly profile URL (search `credly.com/users/daudi-symon`)
-- [ ] Connect the contact form to Formspree or EmailJS (see `src/main.js` TODO)
+- [x] Add your profile photo to `images/profile.jpg` and update `index.html` avatar sections
+- [x] Add your CV PDF to `assets/Daudi_Symon_CV.pdf`
+- [x] Add `images/favicon.png` and `images/og-cover.jpg`
+- [x] Update your Credly profile URL (search `credly.com/users/daudi-symon`)
+- [x] Contact form connected via Formspree
 
 ## Deployment (GitHub Pages)
 

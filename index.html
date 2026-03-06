@@ -11,7 +11,7 @@
                  style-src  'self' https://fonts.googleapis.com https://unpkg.com https://cdn.jsdelivr.net 'unsafe-inline';
                  font-src   'self' https://fonts.gstatic.com https://cdn.jsdelivr.net;
                  img-src    'self' data: https:;
-                 connect-src 'self';
+                 connect-src 'self' https://formspree.io;
                  frame-ancestors 'none';" />
 
   <!-- ── Security Headers ── -->
@@ -56,10 +56,15 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
   <!-- ── Bootstrap Icons (standalone, no Bootstrap CSS) ── -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+      integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHviSgV8GoanAFQPqGQTfPj1mr5VTXJR"
+      crossorigin="anonymous" />
 
-  <!-- ── AOS ── -->
-  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+  <!-- AOS -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"
+          integrity="sha384-+VzMBggS5bCQyKAGmDpNqm4DXpFBiSHBxTZj7jMFGD3gFgsCZlTVBj5fZXDMWFS"
+          crossorigin="anonymous"></script>
 
   <!-- ── Tailwind (Vite entry) ── -->
   <link rel="stylesheet" href="/src/style.css" />
@@ -937,6 +942,7 @@
               <label for="contactSubject" class="block text-[10px] text-[#aaa] uppercase tracking-widest font-semibold mb-1.5">Subject</label>
               <input type="text" id="contactSubject" name="subject"
                      placeholder="Web App Development Enquiry" required
+                     autocomplete="off"
                      maxlength="200"
                      class="w-full bg-[#161616] border border-white/10 text-white rounded-md px-4 py-3
                             text-sm placeholder-[#444] focus:outline-none focus:border-[#03BCF1]

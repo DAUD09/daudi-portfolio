@@ -5,9 +5,6 @@ export default defineConfig({
   plugins: [
     tailwindcss(),
   ],
-  server: {
-    host: true,
-  },
   // Base path for GitHub Pages deployment
   // Change 'daudi-portfolio' to your actual GitHub repo name
   base: '/',
