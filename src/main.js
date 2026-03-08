@@ -25,7 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const mainNav  = document.getElementById('mainNav')
   const navLinks = document.querySelectorAll('.nav-link')
   const sections = document.querySelectorAll('section[id]')
-  const lightSections = ['skills', 'about']
+  const lightSections = []
 
   const updateNav = () => {
     if (window.scrollY > 60) {
@@ -56,8 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
 
     navLinks.forEach(link => {
       const isActive = link.getAttribute('href') === `#${current}`
-      link.classList.toggle('text-white', isActive && !isLightSection)
-      link.classList.toggle('text-white/80', !isActive && !isLightSection)
+      if (!isLightSection) {
+        link.classList.remove('text-[#0d0d0d]')
+        link.classList.toggle('text-white', isActive)
+        link.classList.toggle('text-white/80', !isActive)
+      }
     })
   }
   window.addEventListener('scroll', updateNav, { passive: true })

@@ -593,3 +593,11 @@ footer > div {
 #mainNav.nav-light #mobileMenu .border-t {
   border-color: rgba(0, 0, 0, 0.1) !important;
 }
+
+/* ── Mobile navbar: always solid dark background ── */
+@media (max-width: 1023px) {
+  #mainNav {
+    background-color: rgba(10, 10, 10, 0.97) !important;
+    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.4) !important;
+  }
+}

@@ -4,11 +4,8 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
- 
-
   <!-- ── Security Headers ── -->
   <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-  <meta http-equiv="X-Frame-Options" content="DENY" />
   <meta name="referrer" content="strict-origin-when-cross-origin" />
 
   <!-- ── Primary SEO ── -->
@@ -47,14 +44,14 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet" />
 
-  <!-- ── Bootstrap Icons (standalone, no Bootstrap CSS) ── -->
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
-      rel="stylesheet"
-      integrity="sha384-XGjxtQfXaH2tnPFa9x+ruJTuLE3Aa6LhHviSgV8GoanAFQPqGQTfPj1mr5VTXJR"
-      crossorigin="anonymous" />
+  <!-- ── Bootstrap Icons ── -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
   <!-- ── Tailwind (Vite entry) ── -->
   <link rel="stylesheet" href="/src/style.css" />
+
+  <!-- ── AOS CSS ── -->
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
   <!-- ── JSON-LD Structured Data ── -->
   <script type="application/ld+json">
@@ -100,10 +97,10 @@
       <li><a href="#services"       class="nav-link px-4 py-2.5 text-sm font-light text-white/80 hover:text-white relative transition-colors duration-200">Services</a></li>
       <li><a href="#skills"         class="nav-link px-4 py-2.5 text-sm font-light text-white/80 hover:text-white relative transition-colors duration-200">Skills</a></li>
       <li><a href="#projects"       class="nav-link px-4 py-2.5 text-sm font-light text-white/80 hover:text-white relative transition-colors duration-200">Projects</a></li>
-      <li><a href="#certifications" class="nav-link px-4 py-2.5 text-sm font-light  text-white/80 hover:text-white relative transition-colors duration-200">Certifications</a></li>
+      <li><a href="#certifications" class="nav-link px-4 py-2.5 text-sm font-light text-white/80 hover:text-white relative transition-colors duration-200">Certifications</a></li>
       <li class="ml-4">
         <a href="#contact"
-          class="px-5 py-1.5 border-1.5 border-white text-white text-xs font-light rounded-full
+          class="px-5 py-1.5 border border-white text-white text-xs font-light rounded-full
                 hover:bg-white hover:text-[#0d0d0d] transition-all duration-200">
           Hire Me
         </a>
@@ -124,16 +121,17 @@
 
   <!-- Mobile menu -->
   <div id="mobileMenu"
-       class="lg:hidden hidden bg-[#0a0a0a]/98 border-t border-white/5 px-6 py-4">
+       class="lg:hidden hidden border-t border-white/5 px-6 py-4"
+       style="background-color: rgba(10, 10, 10, 0.97);">
     <ul class="flex flex-col gap-1" role="list">
-      <li><a href="#about"          class="mobile-nav-link block py-3 text-sm font-light ext-white/80 hover:text-[#03BCF1] transition-colors">About</a></li>
+      <li><a href="#about"          class="mobile-nav-link block py-3 text-sm font-light text-white/80 hover:text-[#03BCF1] transition-colors">About</a></li>
       <li><a href="#services"       class="mobile-nav-link block py-3 text-sm font-light text-white/80 hover:text-[#03BCF1] transition-colors">Services</a></li>
       <li><a href="#skills"         class="mobile-nav-link block py-3 text-sm font-light text-white/80 hover:text-[#03BCF1] transition-colors">Skills</a></li>
       <li><a href="#projects"       class="mobile-nav-link block py-3 text-sm font-light text-white/80 hover:text-[#03BCF1] transition-colors">Projects</a></li>
       <li><a href="#certifications" class="mobile-nav-link block py-3 text-sm font-light text-white/80 hover:text-[#03BCF1] transition-colors">Certifications</a></li>
       <li class="pt-3">
         <a href="#contact"
-          class="mobile-nav-link block text-center py-1.5 border-2 border-white text-white text-xs font-light rounded-full hover:bg-white hover:text-[#0d0d0d] transition-colors">
+          class="mobile-nav-link block text-center py-2 border-2 border-white text-white text-xs font-light rounded-full hover:bg-white hover:text-[#0d0d0d] transition-colors">
           Hire Me
         </a>
       </li>
@@ -201,7 +199,7 @@
                       transition-all duration-200">
               <i class="bi bi-linkedin text-base"></i>
             </a>
-            <a href="/cdn-cgi/l/email-protection#93e1fae9fff6e1a3aad3f4fef2faffbdf0fcfe" aria-label="Send email" class="w-10 h-10 border border-white/15 rounded-full flex items-center justify-center
+            <a href="mailto:rizler09@gmail.com" aria-label="Send email" class="w-10 h-10 border border-white/15 rounded-full flex items-center justify-center
                       text-[#aaa] hover:border-[#03BCF1] hover:text-[#03BCF1] hover:-translate-y-1
                       transition-all duration-200">
               <i class="bi bi-envelope-fill text-base"></i>
@@ -229,6 +227,7 @@
             <i class="bi bi-mortarboard-fill text-[#03BCF1]"></i>
             First Class Honours
           </div>
+        </div>
 
       </div>
     </div>
@@ -244,7 +243,7 @@
   <!-- ============================================================
        ABOUT
   ============================================================ -->
-  <section id="about" aria-label="About Me" class="bg-[#080808] py-24"> 
+  <section id="about" aria-label="About Me" class="bg-[#080808] py-24">
     <div class="max-w-6xl mx-auto px-6">
       <div class="flex flex-col lg:flex-row items-center gap-12 lg:gap-16">
 
@@ -299,7 +298,7 @@
               <span class="text-[10px] text-[#aaa] uppercase tracking-widest font-semibold">
                 <i class="bi bi-envelope-fill mr-1 text-[#03BCF1]"></i>Email
               </span>
-              <span class="block text-sm text-white font-medium mt-0.5"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="493b2033252c3b7970092e24282025672a2624">[email&#160;protected]</a></span>
+              <span class="block text-sm text-white font-medium mt-0.5">rizler09@gmail.com</span>
             </div>
             <div>
               <span class="text-[10px] text-[#aaa] uppercase tracking-widest font-semibold">
@@ -320,6 +319,7 @@
              class="cv-download-btn">
             <i class="bi bi-file-earmark-pdf-fill" style="color:#E4433A;"></i>Daudi Symon CV
           </a>
+        </div>
 
       </div>
     </div>
@@ -339,7 +339,6 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Service Card macro -->
         <article data-aos="fade-up" data-aos-delay="100"
                  class="bg-[#161616] border border-[#03BCF1]/20 rounded-lg p-6
                         hover:border-[#03BCF1] hover:-translate-y-1 hover:shadow-[0_4px_20px_rgba(3,188,241,0.12)]
@@ -478,7 +477,6 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- Skill group helper classes are inline Tailwind below -->
         <div data-aos="fade-up" data-aos-delay="100"
              class="bg-white border border-gray-100 border-l-4 border-l-[#03BCF1] rounded-lg p-6
                     hover:shadow-lg hover:-translate-y-1 transition-all duration-300">
@@ -663,7 +661,6 @@
 
       <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
 
-        <!-- CCNA 1 -->
         <article data-aos="fade-up" data-aos-delay="100"
                  class="bg-[#161616] border border-[#03BCF1]/20 rounded-lg p-5 flex flex-col
                         hover:border-[#03BCF1] hover:-translate-y-1 transition-all duration-300">
@@ -687,7 +684,6 @@
           </div>
         </article>
 
-        <!-- CCNA 2 -->
         <article data-aos="fade-up" data-aos-delay="200"
                  class="bg-[#161616] border border-[#03BCF1]/20 rounded-lg p-5 flex flex-col
                         hover:border-[#03BCF1] hover:-translate-y-1 transition-all duration-300">
@@ -711,7 +707,6 @@
           </div>
         </article>
 
-        <!-- CCNA 3 -->
         <article data-aos="fade-up" data-aos-delay="300"
                  class="bg-[#161616] border border-[#03BCF1]/20 rounded-lg p-5 flex flex-col
                         hover:border-[#03BCF1] hover:-translate-y-1 transition-all duration-300">
@@ -735,7 +730,6 @@
           </div>
         </article>
 
-        <!-- Network Security -->
         <article data-aos="fade-up" data-aos-delay="400"
                  class="bg-[#161616] border border-[#03BCF1]/20 rounded-lg p-5 flex flex-col
                         hover:border-[#03BCF1] hover:-translate-y-1 transition-all duration-300">
@@ -759,7 +753,6 @@
           </div>
         </article>
 
-        <!-- Intro Cybersecurity -->
         <article data-aos="fade-up" data-aos-delay="500"
                  class="bg-[#161616] border border-[#03BCF1]/20 rounded-lg p-5 flex flex-col
                         hover:border-[#03BCF1] hover:-translate-y-1 transition-all duration-300">
@@ -783,7 +776,6 @@
           </div>
         </article>
 
-        <!-- Cyber Threat -->
         <article data-aos="fade-up" data-aos-delay="600"
                  class="bg-[#161616] border border-[#03BCF1]/20 rounded-lg p-5 flex flex-col
                         hover:border-[#03BCF1] hover:-translate-y-1 transition-all duration-300">
@@ -808,7 +800,8 @@
         </article>
 
       </div>
-     <!-- Credly CTA -->
+
+      <!-- Credly CTA -->
       <div class="text-center mt-24" data-aos="fade-up">
         <p class="text-[#aaa] text-sm" style="padding-top: 24px;">View and verify all badges on my Credly profile</p>
         <a href="https://www.credly.com/users/daudi-symon" target="_blank" rel="noopener noreferrer"
@@ -845,9 +838,7 @@
             </div>
             <div>
               <span class="text-[10px] text-[#aaa] uppercase tracking-widest font-semibold block">Email</span>
-              <a href="/cdn-cgi/l/email-protection#9ae8f3e0f6ffe8aaa3dafdf7fbf3f6b4f9f5f7" class="text-sm text-white font-medium hover:text-[#03BCF1] transition-colors mt-0.5 block">
-                <span class="__cf_email__" data-cfemail="05776c7f696077353c456268646c692b666a68">[email&#160;protected]</span>
-              </a>
+              <span class="text-sm text-white font-medium mt-0.5 block">rizler09@gmail.com</span>
             </div>
           </div>
 
@@ -881,21 +872,21 @@
             <a href="https://github.com/DAUD09" target="_blank" rel="noopener noreferrer"
                aria-label="GitHub"
                class="w-11 h-11 border border-[#03BCF1]/25 rounded-lg flex items-center justify-center
-                      text-[#aaa] hover:border-[#03BCF1] hover:text-[#03BCF1] hover:bg-[#03BCF1]/8
+                      text-[#aaa] hover:border-[#03BCF1] hover:text-[#03BCF1]
                       hover:-translate-y-1 transition-all duration-200 text-lg">
               <i class="bi bi-github"></i>
             </a>
             <a href="https://linkedin.com/in/daudi-symon-703a34372" target="_blank" rel="noopener noreferrer"
                aria-label="LinkedIn"
                class="w-11 h-11 border border-[#03BCF1]/25 rounded-lg flex items-center justify-center
-                      text-[#aaa] hover:border-[#03BCF1] hover:text-[#03BCF1] hover:bg-[#03BCF1]/8
+                      text-[#aaa] hover:border-[#03BCF1] hover:text-[#03BCF1]
                       hover:-translate-y-1 transition-all duration-200 text-lg">
               <i class="bi bi-linkedin"></i>
             </a>
             <a href="https://www.credly.com/users/daudi-symon" target="_blank" rel="noopener noreferrer"
                aria-label="Credly"
                class="w-11 h-11 border border-[#03BCF1]/25 rounded-lg flex items-center justify-center
-                      text-[#aaa] hover:border-[#03BCF1] hover:text-[#03BCF1] hover:bg-[#03BCF1]/8
+                      text-[#aaa] hover:border-[#03BCF1] hover:text-[#03BCF1]
                       hover:-translate-y-1 transition-all duration-200 text-lg">
               <i class="bi bi-patch-check-fill"></i>
             </a>
@@ -929,8 +920,7 @@
               <label for="contactSubject" class="block text-[10px] text-[#aaa] uppercase tracking-widest font-semibold mb-1.5">Subject</label>
               <input type="text" id="contactSubject" name="subject"
                      placeholder="Web App Development Enquiry" required
-                     autocomplete="off"
-                     maxlength="200"
+                     autocomplete="off" maxlength="200"
                      class="w-full bg-[#161616] border border-white/10 text-white rounded-md px-4 py-3
                             text-sm placeholder-[#444] focus:outline-none focus:border-[#03BCF1]
                             focus:ring-2 focus:ring-[#03BCF1]/10 transition-all duration-200" />
@@ -964,9 +954,17 @@
         <span class="text-xl font-extrabold text-white">D<span class="text-[#03BCF1]">.</span>Symon</span>
         <p class="text-xs text-[#aaa] mt-0.5">Building solutions. One line at a time.</p>
       </div>
-      <p class="text-xs text-[#aaa]">
-        &copy; <span id="footerYear"></span> Daudi Symon. All rights reserved.
-      </p>
+      <div class="flex flex-col sm:flex-row items-center gap-4">
+        <div class="flex gap-5 text-xs">
+          <a href="/privacy-policy.html"
+             class="text-[#aaa] hover:text-[#03BCF1] transition-colors">Privacy Policy</a>
+          <a href="/terms-of-use.html"
+             class="text-[#aaa] hover:text-[#03BCF1] transition-colors">Terms of Use</a>
+        </div>
+        <p class="text-xs text-[#aaa]">
+          &copy; <span id="footerYear"></span> Daudi Symon. All rights reserved.
+        </p>
+      </div>
     </div>
   </footer>
 
@@ -981,7 +979,7 @@
   </button>
 
   <!-- AOS -->
-  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.min.js"></script>
   <!-- App JS (Vite entry) -->
   <script type="module" src="/src/main.js"></script>
 </body>
