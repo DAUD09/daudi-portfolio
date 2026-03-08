@@ -8,7 +8,7 @@ export default defineConfig({
   ],
   // Base path for GitHub Pages deployment
   // Change 'daudi-portfolio' to your actual GitHub repo name
-  base: '/',
+  base: '/daudi-portfolio/',
   build: {
     outDir: 'dist',
     // Minify for production security & performance
