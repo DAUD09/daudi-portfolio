@@ -186,44 +186,84 @@ document.addEventListener('DOMContentLoaded', () => {
 
   const isValidEmail = email => /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
 
+  // ── Submit cooldown state ──────────────────────────────────
+  let lastSubmitTime = 0
+  const COOLDOWN_MS  = 10000 // 10 seconds between submissions
+
   if (contactForm) {
     contactForm.addEventListener('submit', e => {
       e.preventDefault()
+
+      // ── Honeypot check — bots fill hidden fields, humans don't ──
+      const honeypot = document.getElementById('formWebsite')
+      if (honeypot && honeypot.value.trim() !== '') return
+
+      // ── Cooldown check ─────────────────────────────────────
+      const now = Date.now()
+      if (now - lastSubmitTime < COOLDOWN_MS) {
+        const remaining = Math.ceil((COOLDOWN_MS - (now - lastSubmitTime)) / 1000)
+        return showMsg(`Please wait ${remaining} seconds before sending another message.`, 'error')
+      }
 
       const name    = sanitize(document.getElementById('contactName').value.trim())
       const email   = sanitize(document.getElementById('contactEmail').value.trim())
       const subject = sanitize(document.getElementById('contactSubject').value.trim())
       const message = sanitize(document.getElementById('contactMessage').value.trim())
 
+      // ── Validation ─────────────────────────────────────────
       if (!name || !email || !subject || !message) {
         return showMsg('Please fill in all fields.', 'error')
       }
+      if (name.length < 2) {
+        return showMsg('Please enter your full name.', 'error')
+      }
       if (!isValidEmail(email)) {
         return showMsg('Please enter a valid email address.', 'error')
+      }
+      if (subject.length < 3) {
+        return showMsg('Please enter a subject.', 'error')
       }
       if (message.length < 10) {
         return showMsg('Your message is too short. Tell me more!', 'error')
       }
 
-      // Show loading state
-      submitBtn.disabled     = true
-      submitBtn.innerHTML    = '<i class="bi bi-hourglass-split mr-2"></i>Sending...'
+      // ── Loading state ──────────────────────────────────────
+      submitBtn.disabled  = true
+      submitBtn.innerHTML = '<i class="bi bi-hourglass-split mr-2"></i>Sending...'
+
+      // ── Abort controller — 10s request timeout ─────────────
+      const controller = new AbortController()
+      const timeout    = setTimeout(() => controller.abort(), 10000)
 
       fetch('https://formspree.io/f/mlgprbgj', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ name, email, subject, message })
+        method:  'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept':        'application/json',
+        },
+        body:   JSON.stringify({ name, email, subject, message }),
+        signal: controller.signal,
       })
       .then(r => {
+        clearTimeout(timeout)
         if (r.ok) {
+          lastSubmitTime = Date.now()
           showMsg("Message sent! I'll get back to you soon.", 'success')
           contactForm.reset()
         } else {
-          showMsg('Something went wrong. Please email me directly.', 'error')
+          return r.json().then(data => {
+            const errMsg = data?.errors?.[0]?.message || 'Something went wrong. Please try again.'
+            showMsg(errMsg, 'error')
+          })
         }
       })
-      .catch(() => {
-        showMsg('Network error. Please check your connection and try again.', 'error')
+      .catch(err => {
+        clearTimeout(timeout)
+        if (err.name === 'AbortError') {
+          showMsg('Request timed out. Please check your connection and try again.', 'error')
+        } else {
+          showMsg('Network error. Please check your connection and try again.', 'error')
+        }
       })
       .finally(() => {
         submitBtn.disabled  = false

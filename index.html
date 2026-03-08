@@ -53,6 +53,15 @@
   <!-- ── AOS CSS ── -->
   <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
 
+  <!-- ── Google Analytics GA4 ── -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSSNLHH3H9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QSSNLHH3H9');
+  </script>
+
   <!-- ── JSON-LD Structured Data ── -->
   <script type="application/ld+json">
   {
@@ -199,14 +208,11 @@
                       transition-all duration-200">
               <i class="bi bi-linkedin text-base"></i>
             </a>
-            <a href="https://www.credly.com/users/daudi-symon" target="_blank" rel="noopener noreferrer"
-               aria-label="Credly profile"
-               class="w-10 h-10 border border-white/15 rounded-full flex items-center justify-center
+            <a href="/cdn-cgi/l/email-protection#b5c7dccfd9d0c7858cf5d2d8d4dcd99bd6dad8" aria-label="Send email" class="w-10 h-10 border border-white/15 rounded-full flex items-center justify-center
                       text-[#aaa] hover:border-[#03BCF1] hover:text-[#03BCF1] hover:-translate-y-1
                       transition-all duration-200">
-              <i class="bi bi-patch-check-fill text-base"></i>
+              <i class="bi bi-envelope-fill text-base"></i>
             </a>
-            
           </div>
         </div>
 
@@ -301,7 +307,7 @@
               <span class="text-[10px] text-[#aaa] uppercase tracking-widest font-semibold">
                 <i class="bi bi-envelope-fill mr-1 text-[#03BCF1]"></i>Email
               </span>
-              <span class="block text-sm text-white font-medium mt-0.5">rizler09@gmail.com</span>
+              <span class="block text-sm text-white font-medium mt-0.5"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a7d5ceddcbc2d5979ee7c0cac6cecb89c4c8ca">[email&#160;protected]</a></span>
             </div>
             <div>
               <span class="text-[10px] text-[#aaa] uppercase tracking-widest font-semibold">
@@ -841,7 +847,7 @@
             </div>
             <div>
               <span class="text-[10px] text-[#aaa] uppercase tracking-widest font-semibold block">Email</span>
-              <span class="text-sm text-white font-medium mt-0.5 block">rizler09@gmail.com</span>
+              <span class="text-sm text-white font-medium mt-0.5 block"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="c8baa1b2a4adbaf8f188afa5a9a1a4e6aba7a5">[email&#160;protected]</a></span>
             </div>
           </div>
 
@@ -899,6 +905,10 @@
         <!-- Form -->
         <div class="flex-1" data-aos="fade-left">
           <form id="contactForm" novalidate class="space-y-4" autocomplete="off">
+            <!-- Honeypot — hidden from humans, bots will fill this -->
+            <div style="position:absolute; left:-9999px; top:-9999px;" aria-hidden="true">
+              <input type="text" id="formWebsite" name="website" tabindex="-1" autocomplete="off" />
+            </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
                 <label for="contactName" class="block text-[10px] text-[#aaa] uppercase tracking-widest font-semibold mb-1.5">Full Name</label>

@@ -16,10 +16,38 @@
   <!-- Bootstrap Icons -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet" />
 
-  <!-- Tailwind via CDN for standalone page -->
-  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
   <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { font-size: 16px; scroll-behavior: smooth; }
+    /* Utility resets used across the page */
+    .flex { display: flex; }
+    .flex-col { flex-direction: column; }
+    .items-center { align-items: center; }
+    .justify-between { justify-content: space-between; }
+    .gap-2 { gap: 8px; }
+    .gap-3 { gap: 12px; }
+    .gap-4 { gap: 16px; }
+    .gap-6 { gap: 24px; }
+    .text-white { color: #ffffff; }
+    .text-xl { font-size: 1.25rem; }
+    .text-4xl { font-size: 2.25rem; line-height: 1.2; }
+    .text-sm { font-size: 0.875rem; }
+    .text-xs { font-size: 0.75rem; }
+    .font-extrabold { font-weight: 800; }
+    .font-light { font-weight: 300; }
+    .tracking-tight { letter-spacing: -0.025em; }
+    .transition-colors { transition: color 0.2s ease; }
+    .fixed { position: fixed; }
+    .top-0 { top: 0; }
+    .left-0 { left: 0; }
+    .right-0 { right: 0; }
+    .z-50 { z-index: 50; }
+    .py-4 { padding-top: 16px; padding-bottom: 16px; }
+    .mb-2 { margin-bottom: 8px; }
+    .mb-12 { margin-bottom: 48px; }
+    @media (min-width: 640px) {
+      .sm\:flex-row { flex-direction: row; }
+    }
     body { font-family: 'Poppins', sans-serif; background-color: #0d0d0d; color: #f0f0f0; }
     ::selection { background-color: #03BCF1; color: #0d0d0d; }
     ::-webkit-scrollbar { width: 5px; }
@@ -74,6 +102,14 @@
       font-weight: 600;
     }
   </style>
+  <!-- Google Analytics GA4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-QSSNLHH3H9"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-QSSNLHH3H9');
+  </script>
 </head>
 
 <body>
@@ -125,7 +161,7 @@
       <ul>
         <li><strong style="color:#fff;">Contact form submissions</strong> — when you use the "Get In Touch" form, your name, email address, subject, and message are submitted to and processed by Formspree (a third-party form service). I receive these details via email so I can respond to your enquiry.</li>
         <li><strong style="color:#fff;">No account registration</strong> — this site has no login, sign-up, or user accounts.</li>
-        <li><strong style="color:#fff;">No automatic tracking</strong> — I do not use Google Analytics, Facebook Pixel, or any other analytics or tracking tools on this site.</li>
+        <li><strong style="color:#fff;">No automatic tracking</strong> — this site uses Google Analytics 4 (GA4) to collect anonymous traffic data such as page views, device type, and approximate location. No personally identifiable information is collected through analytics.</li>
       </ul>
     </div>
 
@@ -134,6 +170,7 @@
       <h2><i class="bi bi-boxes"></i>Third-Party Services</h2>
       <p>This site loads resources from the following third-party services, which may set cookies or collect limited technical data (such as your IP address) as part of their normal operation:</p>
       <ul>
+        <li><strong style="color:#fff;">Google Analytics 4 (GA4)</strong> — used to collect anonymous usage data including page views, session duration, device type, and traffic sources. This data helps me understand how visitors use the site. No personally identifiable information is collected. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#03BCF1;">Google's Privacy Policy</a>.</li>
         <li><strong style="color:#fff;">Google Fonts</strong> — used to load the Poppins typeface. Google may log font requests. See <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style="color:#03BCF1;">Google's Privacy Policy</a>.</li>
         <li><strong style="color:#fff;">jsDelivr CDN</strong> — used to load Bootstrap Icons and AOS animation library. See <a href="https://www.jsdelivr.com/privacy-policy-jsdelivr-net" target="_blank" rel="noopener noreferrer" style="color:#03BCF1;">jsDelivr's Privacy Policy</a>.</li>
         <li><strong style="color:#fff;">Formspree</strong> — processes contact form submissions. Your submitted data (name, email, message) is stored on Formspree's servers and forwarded to me. See <a href="https://formspree.io/legal/privacy-policy" target="_blank" rel="noopener noreferrer" style="color:#03BCF1;">Formspree's Privacy Policy</a>.</li>
