@@ -198,6 +198,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const honeypot = document.getElementById('formWebsite')
       if (honeypot && honeypot.value.trim() !== '') return
 
+      // ── hCaptcha token check ───────────────────────────────
+      const hcaptchaResponse = document.querySelector('[name="h-captcha-response"]')
+      const captchaToken = hcaptchaResponse ? hcaptchaResponse.value : ''
+      if (!captchaToken) {
+        return showMsg('Please complete the CAPTCHA verification.', 'error')
+      }
+
       // ── Cooldown check ─────────────────────────────────────
       const now = Date.now()
       if (now - lastSubmitTime < COOLDOWN_MS) {
@@ -241,7 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
           'Content-Type': 'application/json',
           'Accept':        'application/json',
         },
-        body:   JSON.stringify({ name, email, subject, message }),
+        body: JSON.stringify({ name, email, subject, message, 'h-captcha-response': captchaToken }),
         signal: controller.signal,
       })
       .then(r => {
@@ -250,6 +257,7 @@ document.addEventListener('DOMContentLoaded', () => {
           lastSubmitTime = Date.now()
           showMsg("Message sent! I'll get back to you soon.", 'success')
           contactForm.reset()
+          if (window.hcaptcha) window.hcaptcha.reset()
         } else {
           return r.json().then(data => {
             const errMsg = data?.errors?.[0]?.message || 'Something went wrong. Please try again.'
