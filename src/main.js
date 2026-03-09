@@ -198,13 +198,6 @@ document.addEventListener('DOMContentLoaded', () => {
       const honeypot = document.getElementById('formWebsite')
       if (honeypot && honeypot.value.trim() !== '') return
 
-      // ── hCaptcha token check ───────────────────────────────
-      const hcaptchaResponse = document.querySelector('[name="h-captcha-response"]')
-      const captchaToken = hcaptchaResponse ? hcaptchaResponse.value : ''
-      if (!captchaToken) {
-        return showMsg('Please complete the CAPTCHA verification.', 'error')
-      }
-
       // ── Cooldown check ─────────────────────────────────────
       const now = Date.now()
       if (now - lastSubmitTime < COOLDOWN_MS) {
@@ -248,7 +241,7 @@ document.addEventListener('DOMContentLoaded', () => {
           'Content-Type': 'application/json',
           'Accept':        'application/json',
         },
-        body: JSON.stringify({ name, email, subject, message, 'h-captcha-response': captchaToken }),
+        body: JSON.stringify({ name, email, subject, message }),
         signal: controller.signal,
       })
       .then(r => {
