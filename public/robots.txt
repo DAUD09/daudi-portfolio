@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://daud09.github.io/daudi-portfolio/sitemap.xml
