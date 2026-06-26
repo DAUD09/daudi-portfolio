@@ -86,4 +86,5 @@ daudi-portfolio/
 
 ## License
 
-© 2025 Daudi Symon. All rights reserved.
+
+© 2026 Daudi Symon. All rights reserved.
